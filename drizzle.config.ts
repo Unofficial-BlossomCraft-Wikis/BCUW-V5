@@ -7,6 +7,7 @@ export default {
 	dialect: "sqlite",
 	dbCredentials: {
 		url: env.DATABASE_URL,
+		token: env.DATABASE_TOKEN,
 	},
 	tablesFilter: ["bcuw-v5_*"],
 } satisfies Config;
