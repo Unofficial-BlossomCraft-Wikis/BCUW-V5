@@ -1,6 +1,8 @@
 import Navbar from "@/components/navbar";
+import { ContentHeader } from "@/components/page-header";
 import { AppSidebar } from "@/components/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TitleProvider } from "@/components/title-provider";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import "@/styles/globals.css";
 
@@ -27,11 +29,18 @@ export default function RootLayout({
 					disableTransitionOnChange
 				>
 					<SidebarProvider>
-						<AppSidebar />
-						<main className="flex h-full w-full flex-col">
-							<Navbar />
-							<div className="h-[calc(100vh-3rem)]">{children}</div>
-						</main>
+						<TitleProvider>
+							<AppSidebar />
+							<main className="flex h-full w-full flex-col">
+								<Navbar />
+								<div className="h-[calc(100vh-4rem)] p-2 pt-0">
+									<div className="h-full w-full overflow-y-scroll rounded-xl border border-sidebar-border/75 bg-sidebar/75 text-sidebar-foreground shadow">
+										<ContentHeader />
+										{children}
+									</div>
+								</div>
+							</main>
+						</TitleProvider>
 					</SidebarProvider>
 				</ThemeProvider>
 			</body>
