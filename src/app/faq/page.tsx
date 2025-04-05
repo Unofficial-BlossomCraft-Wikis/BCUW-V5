@@ -5,9 +5,11 @@ export default function HomePage() {
   return (
     <>
       <TitleDataUpdater
-        data={{ title: "Discord Resources", tags: { stub: true } }}
+        data={{ title: "Frequently Asked Questions", tags: { stub: true } }}
       />
-      <main className='p-2 prose'></main>
+      <main className='p-2 prose'>
+        <h2>We are currently working on this page</h2>
+      </main>
     </>
   );
 }

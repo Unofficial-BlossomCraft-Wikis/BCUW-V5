@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function HomePage() {
   return (
     <>
-      <TitleDataUpdater data={{ title: "User-made Resources", UGC: true }} />
+      <TitleDataUpdater data={{ title: "User-made Resources", tags: { UGC: true } }} />
       <main className='p-2 prose'>
         <ul>
           <li>

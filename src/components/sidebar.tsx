@@ -18,8 +18,10 @@ import {
 } from "@/components/ui/sidebar";
 import {
 	BookCheck,
+	BookMarked,
 	BookOpen,
 	BookUser,
+	BookX,
 	ChevronDown,
 	Code,
 	Eye,
@@ -93,6 +95,14 @@ export function AppSidebar() {
 											<Link href="/credits">
 												<ScrollText />
 												<span>Credits</span>
+											</Link>
+										</SidebarMenuButton>
+									</SidebarMenuItem>
+									<SidebarMenuItem>
+										<SidebarMenuButton asChild>
+											<Link href="/about">
+												<NotebookPen />
+												<span>About</span>
 											</Link>
 										</SidebarMenuButton>
 									</SidebarMenuItem>
@@ -256,6 +266,30 @@ export function AppSidebar() {
 											<Link href="/privacy">
 												<Eye />
 												<span>Privacy</span>
+											</Link>
+										</SidebarMenuButton>
+									</SidebarMenuItem>
+									<SidebarMenuItem>
+										<SidebarMenuButton asChild>
+											<Link href="/tos">
+												<ScrollText />
+												<span>Terms of Service</span>
+											</Link>
+										</SidebarMenuButton>
+									</SidebarMenuItem>
+									<SidebarMenuItem>
+										<SidebarMenuButton asChild>
+											<Link href="/guidelines/community">
+												<BookMarked />
+												<span>Community Guidelines</span>
+											</Link>
+										</SidebarMenuButton>
+									</SidebarMenuItem>
+									<SidebarMenuItem>
+										<SidebarMenuButton asChild>
+											<Link href="/disclaimer">
+												<BookX />
+												<span>Disclaimer</span>
 											</Link>
 										</SidebarMenuButton>
 									</SidebarMenuItem>

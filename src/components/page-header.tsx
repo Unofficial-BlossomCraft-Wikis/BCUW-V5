@@ -13,7 +13,9 @@ import { Badge } from "./ui/badge";
 
 export function ContentHeader() {
   const { titleData } = useTitleData();
-  const { title, UGC, icon, stub } = titleData;
+  const { title, tags, icon } = titleData;
+  const UGC = tags?.UGC;
+  const stub = tags?.stub;
 
   return (
     <header className='flex w-full flex-row justify-between border-sidebar-border/75 border-b p-2'>
@@ -64,7 +66,7 @@ export function ContentHeader() {
               </TooltipTrigger>
               <TooltipContent className='w-full max-w-sm'>
                 <p className='text-pretty'>
-                  This page us a stub. You can help improve this page by
+                  This page us a stub. You can help improve BCUW and this page by
                   contributing to the wiki.
                 </p>
               </TooltipContent>
