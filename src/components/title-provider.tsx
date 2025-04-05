@@ -13,6 +13,7 @@ interface TitleData {
 	title: string;
 	// tags?: string[];
 	UGC?: boolean;
+	stub?: boolean;
 	icon?: string;
 }
 
