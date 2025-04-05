@@ -12,7 +12,7 @@ export default function Navbar() {
 						<img
 							src="/bcuwOnlyTitleNormal.png"
 							alt="BCUW Logo"
-							className="h-10 w-auto max-md:h-12"
+							className="h-10 w-auto"
 						/>
 					</a>
 				</div>

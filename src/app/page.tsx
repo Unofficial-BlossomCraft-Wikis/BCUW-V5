@@ -6,7 +6,7 @@ export default function HomePage() {
 		<>
 			<TitleDataUpdater data={{ title: "Main Page" }} />
 			<main className="p-2">
-				<div className="flex h-[50%] flex-col-reverse justify-center md:flex-row">
+				<div className="flex h-1/2 flex-col-reverse justify-center md:flex-row">
 					<div className="prose flex flex-col items-center justify-center text-center md:basis-1/2 ">
 						<h1>BCUW</h1>
 						<p>
@@ -42,6 +42,9 @@ export default function HomePage() {
 						/>
 					</div>
 				</div>
+        <p>
+          
+        </p>
 			</main>
 		</>
 	);
