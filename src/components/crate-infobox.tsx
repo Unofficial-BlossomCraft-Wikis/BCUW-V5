@@ -17,14 +17,14 @@ export function CrateInfobox({ crate, items }: { crate: Doc<"blossomCrates">, it
       </Card.CardHeader>
       <Separator />
       <Card.CardContent>
-        <p className='prose-h2'>Prices:</p>
+        <p className='prose-h2'>Price:</p>
         <ul className='list-disc list-inside'>
           {crate.price_keyshop == -1 ? (
-            <li>/warp KeyShop price: Offsale</li>
+            <li>/warp KeyShop: Offsale</li>
           ) : (
-            <li>/warp KeyShop price: {crate.price_keyshop}</li>
+            <li>/warp KeyShop: {crate.price_keyshop}</li>
           )}
-          <li>Shop price (USD):
+          <li>Shop (USD):
             <ul className='list-disc list-inside ml-2'>
               <li>1 key: {crate.price_shop.one == -1 ? <>Offsale</> : crate.price_shop.one}</li>
               <li>5 keys: {crate.price_shop.five == -1 ? <>Offsale</> : crate.price_shop.five}</li>
