@@ -4,6 +4,7 @@ import { AppSidebar } from "@/components/sidebar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { TitleProvider } from "@/components/title-provider";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { ClerkProvider } from "@clerk/nextjs";
 import "@/styles/globals.css";
 
 import type { Metadata } from "next";
@@ -28,20 +29,22 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <TitleProvider>
-              <AppSidebar />
-              <main className='flex h-full w-full flex-col'>
-                <Navbar />
-                <div className='h-[calc(100vh-4rem)] p-2 pt-0'>
-                  <div className='h-full w-full overflow-y-scroll rounded-xl border border-sidebar-border/75 bg-sidebar/75 text-sidebar-foreground shadow '>
-                    <ContentHeader />
-                    {children}
+          <ClerkProvider>
+            <SidebarProvider>
+              <TitleProvider>
+                <AppSidebar />
+                <main className='flex h-full w-full flex-col'>
+                  <Navbar />
+                  <div className='h-[calc(100vh-4rem)] p-2 pt-0'>
+                    <div className='h-full w-full overflow-y-scroll rounded-xl border border-sidebar-border/75 bg-sidebar/75 text-sidebar-foreground shadow '>
+                      <ContentHeader />
+                      {children}
+                    </div>
                   </div>
-                </div>
-              </main>
-            </TitleProvider>
-          </SidebarProvider>
+                </main>
+              </TitleProvider>
+            </SidebarProvider>
+          </ClerkProvider>
         </ThemeProvider>
       </body>
     </html>
