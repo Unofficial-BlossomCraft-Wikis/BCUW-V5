@@ -1,3 +1,5 @@
+import { FiveCrates } from "@/components/home-crate-5";
+import { FiveItems } from "@/components/home-item-5";
 import { TitleDataUpdater } from "@/components/title-provider";
 import Link from "next/link";
 
@@ -42,9 +44,10 @@ export default function HomePage() {
 						/>
 					</div>
 				</div>
-        <p>
-          
-        </p>
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+					<FiveItems />
+					<FiveCrates />
+				</div>
 			</main>
 		</>
 	);

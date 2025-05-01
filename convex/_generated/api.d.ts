@@ -13,6 +13,8 @@ import type {
   FilterApi,
   FunctionReference,
 } from "convex/server";
+import type * as blossom_crates from "../blossom_crates.js";
+import type * as blossom_crates_images from "../blossom_crates_images.js";
 import type * as blossom_items from "../blossom_items.js";
 import type * as blossom_items_images from "../blossom_items_images.js";
 
@@ -25,6 +27,8 @@ import type * as blossom_items_images from "../blossom_items_images.js";
  * ```
  */
 declare const fullApi: ApiFromModules<{
+  blossom_crates: typeof blossom_crates;
+  blossom_crates_images: typeof blossom_crates_images;
   blossom_items: typeof blossom_items;
   blossom_items_images: typeof blossom_items_images;
 }>;

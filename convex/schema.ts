@@ -6,6 +6,7 @@ export default defineSchema({
     name: v.string(),
     release: v.string(),
     crate: v.string(),
+    crateWinChance: v.number(),
     baseitem: v.string(),
     sharedItemId: v.optional(v.string()),
     isSharedItemBaseItem: v.optional(v.boolean()),

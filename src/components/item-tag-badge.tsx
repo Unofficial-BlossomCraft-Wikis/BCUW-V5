@@ -20,7 +20,7 @@ interface ItemTagBadgeProps {
 export function ItemTagsBadge({ tags }: { tags: ItemTagBadgeProps }) {
   return (
     <>
-      {tags.magicInfinite && <Badge variant={"cherry"}>Magic Infinite</Badge>}
+      {tags.magicInfinite && <Badge variant={"cherry"}>Magic/Infinite</Badge>}
       {tags.weapon && <Badge variant={"spirit"}>Weapon</Badge>}
       {tags.armor && <Badge variant={"lotus"}>Armor</Badge>}
       {tags.consumable && <Badge variant={"tulip"}>Consumable</Badge>}
