@@ -29,6 +29,8 @@ interface TitleData {
       rare?: boolean;
       epic?: boolean;
       legendary?: boolean;
+      disabled?: boolean;
+      broken?: boolean;
     };
     crateTags?: {
       infinite?: boolean;

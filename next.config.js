@@ -5,6 +5,15 @@
 import "./src/env.js";
 
 /** @type {import("next").NextConfig} */
-const config = {};
+const config = {
+  async rewrites() {
+    return [
+      {
+        source: '/cdn/ut/:id',
+        destination: 'https://co6j4hk884.ufs.sh/f/:id',
+      },
+    ]
+  },
+};
 
 export default config;
