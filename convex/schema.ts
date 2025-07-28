@@ -10,6 +10,10 @@ export default defineSchema({
     baseitem: v.string(),
     sharedItemId: v.optional(v.string()),
     isSharedItemBaseItem: v.optional(v.boolean()),
+    images: v.object({
+      item: v.string(),
+      lore: v.string(),
+    }),
     tags: v.object({
       magicInfinite: v.boolean(),
       weapon: v.boolean(),
@@ -36,6 +40,7 @@ export default defineSchema({
       five: v.number(),
       ten: v.number()
     }),
+    images: v.array(v.string()),
     tags: v.object({
       infinite: v.boolean(),
       season: v.boolean(),
@@ -44,17 +49,6 @@ export default defineSchema({
       other: v.boolean(),
     }),
   }).index("by_name", ["name"]).index("by_tags", ["tags"]),
-  itemImages: defineTable({
-    name: v.string(),
-    images: v.object({
-      item: v.string(),
-      lore: v.string(),
-    }),
-  }).index("by_name", ["name"]),
-  crateImages: defineTable({
-    name: v.string(),
-    images: v.array(v.string()),
-  }).index("by_name", ["name"]),
 });
 
 

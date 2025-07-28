@@ -1,3 +1,5 @@
+// code for the infinite scroll is from https://shadcnui-expansions.typeart.cc/docs/infinite-scroll
+
 import * as React from "react";
 
 interface InfiniteScrollProps {

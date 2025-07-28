@@ -11,7 +11,7 @@ export default function HomePage() {
         <p>
         The BCUW logo was created using the <Link href="https://www.blockbench.net/plugins/minecraft_title_generator">Minecraft Title Generator</Link> plugin for <Link href="https://www.blockbench.net/">Blockbench</Link>.
         </p>
-        <p>The BCUW V5 site was created by altie122 using <Link href="https://nextjs.org/">Next.js</Link>, <Link href="https://tailwindcss.com/">Tailwind CSS</Link>, <Link href="https://ui.shadcn.com/">Shadcn/ui</Link> and more amazing tools!</p>
+        <p>The BCUW V5 site is open source and was created by altie122 (Alton Rose) using <Link href="https://nextjs.org/">Next.js</Link>, <Link href="https://tailwindcss.com/">Tailwind CSS</Link>, <Link href="https://ui.shadcn.com/">Shadcn/ui</Link> and more amazing tools!</p>
         <p>The site background is a screenshot of the spawn area on the Cherry sub-server.</p>
       </main>
     </>

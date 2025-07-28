@@ -26,13 +26,6 @@ export default async function HomePage({
   const items = await fetchQuery(api.blossom_items.getByCrate, {
     crate: crate?.name ?? "",
   });
-  const crateImages = await fetchQuery(
-    api.blossom_crates_images.getByCrateName,
-    {
-      crateName: crate?.name ?? "",
-    }
-  );
-  console.log(crateImages);
   if (!crate) {
     return <TitleDataUpdater data={{ title: `Crate - ${id.toString()}` }} />;
   }
@@ -40,31 +33,6 @@ export default async function HomePage({
     return <TitleDataUpdater data={{ title: `Crate - ${crate.name}` }} />;
   }
   const sortedItems = items.sort((a, b) => b.crateWinChance - a.crateWinChance);
-  if (!crateImages) {
-    return (
-      <>
-        <TitleDataUpdater data={{ title: `Crate - ${crate.name}` }} />
-        <main className='p-2'>
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 w-full'>
-            <CrateInfobox crate={crate} items={items} />
-            <div className='col-span-1 md:col-span-2 lg:col-span-3'>
-              <h2 className='prose-h2'>Items</h2>
-              <CrateItemsTable items={items} />
-              <ResponsiveMasonry
-                columnsCountBreakPoints={columnsCountBreakPoints}
-              >
-                <Masonry gutter='0.5rem'>
-                  {sortedItems.map((item) => (
-                    <CrateItemCard item={item} key={item._id} />
-                  ))}
-                </Masonry>
-              </ResponsiveMasonry>
-            </div>
-          </div>
-        </main>
-      </>
-    );
-  }
   return (
     <>
       <TitleDataUpdater data={{ title: `Crate - ${crate.name}` }} />
@@ -77,7 +45,7 @@ export default async function HomePage({
             <h2 className='prose-h2' id='preview'>
               Preview
             </h2>
-            <CratePreview crateImages={crateImages} />
+            <CratePreview crate={crate} />
             <h2 className='prose-h2' id='items'>
               Items
             </h2>
