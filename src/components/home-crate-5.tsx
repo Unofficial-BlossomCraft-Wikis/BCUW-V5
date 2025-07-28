@@ -6,6 +6,13 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { CrateCard } from "./crate-card";
 import { CrateCardPlaceholder } from "./crate-card-skeleton";
+import { Masonry, ResponsiveMasonry } from "@/components/ui/masonry";
+
+const columnsCountBreakPoints = {
+  0: 1,
+  1200: 2,
+  1400: 3,
+};
 
 export function FiveCrates() {
   const crates = useQuery(api.blossom_crates.getFiveRandom);
@@ -16,13 +23,15 @@ export function FiveCrates() {
           <Card.CardTitle>Check out one of these crates!</Card.CardTitle>
         </Card.CardHeader>
         <Card.CardContent>
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-            {
-              Array(5).fill(0).map((_, i) => (
-                <CrateCardPlaceholder key={i} />
-              ))
-            }
-          </div>
+          <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
+            <Masonry gutter='0.5rem'>
+              {Array(5)
+                .fill(0)
+                .map((_, i) => (
+                  <CrateCardPlaceholder key={i} />
+                ))}
+            </Masonry>
+          </ResponsiveMasonry>
         </Card.CardContent>
         <Card.CardFooter>
           <Button variant='outline' className='w-full' asChild>
@@ -38,11 +47,13 @@ export function FiveCrates() {
         <Card.CardTitle>Check out one of these crates!</Card.CardTitle>
       </Card.CardHeader>
       <Card.CardContent>
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-          {crates.map((crate) => (
-            <CrateCard crate={crate} key={crate._id} />
-          ))}
-        </div>
+        <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
+          <Masonry gutter='0.5rem'>
+            {crates.map((crate) => (
+              <CrateCard crate={crate} key={crate._id} />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </Card.CardContent>
       <Card.CardFooter>
         <Button variant='outline' className='w-full' asChild>

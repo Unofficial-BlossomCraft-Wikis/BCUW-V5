@@ -26,29 +26,27 @@ export function CrateItemCard({ item }: { item: Doc<"blossomItems"> }) {
     );
   }
   return (
-    <Link href={`/item/${item._id}`}>
-      <Card.Card>
-        <Card.CardHeader className='flex flex-row gap-2'>
-          <img
-            src={`/cdn/ut/${images.images.item}`}
-            alt={item.name}
-            className='h-16 w-16 rounded-lg'
-          />
-          <div className='flex flex-col gap-2'>
-            <Card.CardTitle>{item.name}</Card.CardTitle>
-            <div className='flex flex-row gap-2 overflow-x-scroll'>
-              <ItemTagsBadge tags={item.tags} />
-            </div>
+    <Card.LinkedCard href={`/item/${item._id}`}>
+      <Card.CardHeader className='flex flex-row gap-2'>
+        <img
+          src={`/cdn/ut/${images.images.item}`}
+          alt={item.name}
+          className='h-16 w-16 rounded-lg'
+        />
+        <div className='flex flex-col gap-2'>
+          <Card.CardTitle>{item.name}</Card.CardTitle>
+          <div className='flex flex-row gap-2 overflow-x-scroll'>
+            <ItemTagsBadge tags={item.tags} />
           </div>
-        </Card.CardHeader>
-        <Card.CardContent>
-          <img
-            src={`/cdn/ut/${images.images.lore}`}
-            alt={item.name}
-            className='h-full w-full rounded-lg'
-          />
-        </Card.CardContent>
-      </Card.Card>
-    </Link>
+        </div>
+      </Card.CardHeader>
+      <Card.CardContent>
+        <img
+          src={`/cdn/ut/${images.images.lore}`}
+          alt={item.name}
+          className='h-auto w-full rounded-lg'
+        />
+      </Card.CardContent>
+    </Card.LinkedCard>
   );
 }

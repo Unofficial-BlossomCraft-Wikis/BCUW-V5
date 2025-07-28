@@ -11,12 +11,12 @@ export function CrateCardPlaceholder() {
           <Card.CardTitle>
             <Skeleton className='h-6 w-[250px]' />
           </Card.CardTitle>
-          <div className='flex flex-row gap-2 overflow-x-scroll'>
+          <div className='flex flex-row gap-2 overflow-x-auto'>
             <Skeleton className='h-5 w-[50px]' />
           </div>
-          <Card.CardDescription>
+          <div className='text-muted-foreground text-sm'>
             <Skeleton className='h-[14px] w-[75px]' />
-          </Card.CardDescription>
+          </div>
         </div>
       </Card.CardHeader>
     </Card.Card>

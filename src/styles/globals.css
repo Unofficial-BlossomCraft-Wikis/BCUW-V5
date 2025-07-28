@@ -203,53 +203,65 @@
     @apply container mx-auto px-4 pt-8 pb-16 sm:px-6 lg:px-8 max-w-[1024px];
   }
   .prose h1,
+  .prose-no-container h1,
   .prose-h1 {
     @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
   }
   .prose h2,
+  .prose-no-container h2,
   .prose-h2 {
     @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
   }
-  .prose .noborder {
+  .prose .noborder, .prose-no-container .noborder {
     @apply border-none;
   }
   .prose h3,
+  .prose-no-container h3,
   .prose-h3 {
     @apply scroll-m-20 text-2xl font-semibold tracking-tight;
   }
   .prose h4,
+  .prose-no-container h4,
   .prose-h4 {
     @apply scroll-m-20 text-xl font-semibold tracking-tight;
   }
   .prose p,
+  .prose-no-container p,
   .prose-p {
     @apply leading-7 [&:not(:first-child)]:mt-6;
   }
   .prose blockquote,
+  .prose-no-container blockquote,
   .prose-blockquote {
     @apply mt-6 border-l-2 pl-6 italic;
   }
   .prose ul,
+  .prose-no-container ul,
   .prose-ul {
     @apply my-6 ml-6 list-disc [&>li]:mt-2;
   }
   .prose ol,
+  .prose-no-container ol,
   .prose-ol {
     @apply my-6 ml-6 list-decimal [&>li]:mt-2;
   }
   .prose a,
+  .prose-no-container a,
   .prose-a {
     @apply text-pink-500 underline;
   }
   .prose b,
+  .prose-no-container b,
   .prose-b {
     @apply font-bold;
   }
   .prose dl,
+  .prose-no-container dl,
   .prose-dl {
     @apply my-6 ml-6 list-disc [&>dt]:mt-2 [&>dd]:ml-6;
   }
   .prose dt,
+  .prose-no-container dt,
   .prose-dt {
     @apply font-bold;
   }

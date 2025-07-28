@@ -9,7 +9,7 @@ export function ItemCardPlaceholder() {
         <Skeleton className='h-16 w-16 rounded-lg' />
         <div className='flex flex-col gap-2'>
           <Card.CardTitle><Skeleton className="h-6 w-[250px]" /></Card.CardTitle>
-          <div className='flex flex-row gap-2 overflow-x-scroll'>
+          <div className='flex flex-row gap-2 overflow-x-auto'>
             <Skeleton className="h-5 w-[50px]" />
           </div>
         </div>

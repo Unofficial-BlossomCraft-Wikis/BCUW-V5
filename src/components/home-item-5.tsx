@@ -6,6 +6,13 @@ import Link from "next/link";
 import { ItemCard } from "./item-card";
 import { Button } from "./ui/button";
 import { ItemCardPlaceholder } from "./item-card-skeleton";
+import { Masonry, ResponsiveMasonry } from "@/components/ui/masonry";
+
+const columnsCountBreakPoints = {
+  0: 1,
+  1600: 2,
+  1800: 3,
+};
 
 export function FiveItems() {
   const items = useQuery(api.blossom_items.getFiveRandom);
@@ -16,13 +23,15 @@ export function FiveItems() {
           <Card.CardTitle>Check out one of these items!</Card.CardTitle>
         </Card.CardHeader>
         <Card.CardContent>
-          <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-            {
-              Array(5).fill(0).map((_, i) => (
-                <ItemCardPlaceholder key={i} />
-              ))
-            }
-          </div>
+          <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
+            <Masonry gutter='0.5rem'>
+              {Array(5)
+                .fill(0)
+                .map((_, i) => (
+                  <ItemCardPlaceholder key={i} />
+                ))}
+            </Masonry>
+          </ResponsiveMasonry>
         </Card.CardContent>
         <Card.CardFooter>
           <Button variant='outline' className='w-full' asChild>
@@ -38,11 +47,13 @@ export function FiveItems() {
         <Card.CardTitle>Check out one of these items!</Card.CardTitle>
       </Card.CardHeader>
       <Card.CardContent>
-        <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
-          {items.map((item) => (
-            <ItemCard item={item} key={item._id} />
-          ))}
-        </div>
+        <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
+          <Masonry gutter='0.5rem'>
+            {items.map((item) => (
+              <ItemCard item={item} key={item._id} />
+            ))}
+          </Masonry>
+        </ResponsiveMasonry>
       </Card.CardContent>
       <Card.CardFooter>
         <Button variant='outline' className='w-full' asChild>

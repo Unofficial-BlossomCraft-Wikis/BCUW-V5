@@ -1,34 +1,57 @@
 "use client";
 import { usePaginatedQuery } from "convex/react";
 import { api } from "convex@/_generated/api";
-import { Button } from "./ui/button";
-import { useScroll } from "motion/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { CrateCard } from "./crate-card";
+import InfiniteScroll from "@/components/ui/infinite-scroll";
+import { Loader2 } from "lucide-react";
+import { Masonry, ResponsiveMasonry } from "@/components/ui/masonry";
+
+const columnsCountBreakPoints = {
+  400: 1,
+  850: 2,
+  1200: 3,
+};
 
 export function CratesList() {
-  const [scrollRef, setScrollRef] = useState<HTMLElement | null>(null); // Manage ref dynamically
+  const [loading, setLoading] = useState(false);
+
   const { results, status, loadMore } = usePaginatedQuery(
     api.blossom_crates.list,
     {},
-    { initialNumItems: 25 }
+    { initialNumItems: 6 }
   );
-  useEffect(() => {
-    // Dynamically assign the container
-    const container = document.querySelector<HTMLElement>(".main-scroll");
-    if (container) setScrollRef(container);
-  }, []); // Run
-  const { scrollYProgress } = useScroll({ container: scrollRef ? { current: scrollRef } : undefined })
-  //dynamically load more crates when the user scrolls to 80% of the container
-  if ( scrollYProgress.get() === 1 ) {
-    console.log("Loading more crates");
-    loadMore(10);
+
+  const hasMore = status === "CanLoadMore";
+
+  const next = async () => {
+    if (loading || !hasMore) return;
+
+    setLoading(true);
+    try {
+      await loadMore(6);
+    } finally {
+      setLoading(false);
+    }
   };
+
   return (
-    <>
-      <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2'>
-        {results?.map((item) => <CrateCard crate={item} key={item._id}/>)}
-      </div>
-    </>
+    <ResponsiveMasonry columnsCountBreakPoints={columnsCountBreakPoints}>
+      <Masonry gutter='0.5rem'>
+        {results?.map((item) => <CrateCard crate={item} key={item._id} />)}
+        <InfiniteScroll
+          hasMore={hasMore}
+          isLoading={loading}
+          next={next}
+          threshold={0.8}
+        >
+          {hasMore && (
+            <div className='col-span-full flex justify-center py-4'>
+              <Loader2 className='h-8 w-8 animate-spin' />
+            </div>
+          )}
+        </InfiniteScroll>
+      </Masonry>
+    </ResponsiveMasonry>
   );
 }
